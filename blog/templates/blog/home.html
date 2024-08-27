@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Profissional</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .profile-img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Bem-vindo ao meu blog profissional</h1>
+    </header>
+
+    <div class="container text-center">
+        {% if sobre.foto %}
+            <img src="{{ sobre.foto.url }}" alt="Foto de perfil" class="profile-img">
+        {% endif %}
+        <p class="mt-3">{{ sobre.conteudo }}</p>
+    </div>
+
+    <div class="container mt-5">
+        <h2>Cursos</h2>
+        <ul class="list-group">
+            {% for curso in cursos %}
+                <li class="list-group-item">{{ curso.nome }} - {{ curso.descricao }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2 class="mt-5">Interesses</h2>
+        <ul class="list-group">
+            {% for interesse in interesses %}
+                <li class="list-group-item">{{ interesse.titulo }} - {{ interesse.descricao }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Meu Blog Profissional</p>
+    </footer>
+</body>
+</html>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    .container {
+        flex: 1;  
+    }
+    .footer {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        margin-top: 30px;
+        width: 100%;
+    }
+</style>
+
+<style>
+    .profile-img {
+        width: 150px; /* Largura da imagem */
+        height: 200px; /* Altura da imagem, mantendo a proporção 3x4 */
+        object-fit: cover; /* Recorta a imagem para preencher o contêiner */
+        border-radius: 5px; 
+    }
+</style>
+
+
